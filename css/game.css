@@ -34,6 +34,12 @@ input:focus, textarea:focus, select:focus{
     font-size: 1.5em;
     margin-top: 1em;
 }
+
+#footer{
+    bottom: 0;
+    left: 0;
+    position: fixed;
+}
     /*-------------------BUTTON CSS----------------------------*/
 
 .guess_button{
