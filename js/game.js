@@ -11,7 +11,6 @@ function startNewGame(){
 }
 
 function movetoNext(current, nextFieldID) {  
-	console.log(current)
 	if (current.value.length >= current.maxLength) {  
 		document.getElementById(nextFieldID).focus();  
 	}
