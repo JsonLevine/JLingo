@@ -1,1 +1,1 @@
-# Scattergories
+# JLingo
