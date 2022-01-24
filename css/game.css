@@ -11,6 +11,10 @@ td{
   height: 3em;
 }
 
+#gameTitle{
+  text-align: center;
+}
+
 .input_box {
   width: 100%;
   border: none;
@@ -19,6 +23,7 @@ td{
   font-size: 2.5em;
   text-align: center;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .input_box:disabled{
@@ -35,6 +40,14 @@ input:focus, textarea:focus, select:focus{
     margin-top: 1em;
 }
 
+#refreshButton{
+  width: 100%;
+}
+
+.hidden_stuff{
+    text-align: center;
+}
+
 #footer{
     bottom: 0;
     left: 0;
@@ -47,21 +60,39 @@ input:focus, textarea:focus, select:focus{
     height: 100%;
   }
 
-  .guess_button:disabled{
-    color: grey;
-    background-color: darkgrey;
+.guess_button:disabled{
+  color: grey;
+  background-color: darkgrey;
+  display:none;
+}
+
+.guess_button .button:active{
+-moz-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
+-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
+box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
+}
+
+.clear_button{
+    width: 100%;
+    height: 100%;
   }
 
-  .guess_button .button:active{
-  -moz-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
-  -webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
-  box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
-  }
+.clear_button:disabled{
+  color: grey;
+  background-color: darkgrey;
+  display:none;
+}
 
-  .submit_button{
-    border:none;
-    background:none;
-  }
+.clear_button .button:active{
+-moz-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
+-webkit-box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
+box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) inset, -5px 0 5px -3px rgba(0, 0, 0, .2) inset;
+}
+
+.submit_button{
+  border:none;
+  background:none;
+}
 
   /*-----------------*/
 

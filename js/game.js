@@ -7,6 +7,10 @@
 	var correctLetters = 0;
 	var validGuess = true;
 
+	window.onload = function() {
+  		document.getElementById("input0_0").focus();
+	};
+
 function startNewGame(){
 	currentRow = 0;
 	solution = generateNewWord();
@@ -18,6 +22,13 @@ function movetoNext(current, nextFieldID) {
 		document.getElementById(nextFieldID).focus();  
 	}
 }  
+
+function clearRow(row){
+	for(var column=0; column <5; column++){
+		document.getElementById("input"+row+"_"+column).value = "";
+	}
+  	document.getElementById("input"+currentRow+"_0").focus();
+}
 
 function validateGuess(input){
 	for(var i =0; i< allWords1.length; i++){
@@ -60,11 +71,14 @@ function submitGuess(row){
 		for(var n=0; n<solution.length; n++){
 			//console.log("Comparing "+solution[n]+" to "+currentGuess[n])
 			if(solution[n] == currentGuess[n]){
-				document.getElementById("form"+row+"_"+n).style.background = "lightgreen"
+				document.getElementById("form"+row+"_"+n).style.background = "lightgreen" //green
 				correctLetters ++;
 			}
 			else if(currentGuess[n] == solution[0] || currentGuess[n] == solution[1] || currentGuess[n] == solution[2] || currentGuess[n] == solution[3] || currentGuess[n] == solution[4]){
-				document.getElementById("form"+row+"_"+n).style.background = "#F7FF73"
+				document.getElementById("form"+row+"_"+n).style.background = "#F7FF73" //yellow
+			}
+			else {
+				document.getElementById("form"+row+"_"+n).style.background = "lightgrey" //grey
 			}
 
 			if(correctLetters == 5){
@@ -83,11 +97,16 @@ function submitGuess(row){
 				//enable 5 inputs in next row
 				document.getElementById("input"+(row+1)+"_"+column).disabled = false;
 			}
-			//disable the guess button in current row
+			//disable the buttons in current row
 			document.getElementById("guess_button_"+row).disabled = true;
+			document.getElementById("clear_button_"+row).disabled = true;
 
-			//enable the guess button in current row
+			//enable the buttons in current row
 			document.getElementById("guess_button_"+(row+1)).disabled = false;
+			document.getElementById("clear_button_"+(row+1)).disabled = false;
+
+			//move focus to next row
+  			document.getElementById("input"+(currentRow+1)+"_0").focus();
 
 			currentRow += 1;
 		}
@@ -103,8 +122,9 @@ function endGame(winner, endRow){
 			//disable 5 inputs in current row
 			document.getElementById("input"+endRow+"_"+column).disabled = true;
 		}
-		//disable the guess button in current row
+		//disable the buttons in current row
 		document.getElementById("guess_button_"+endRow).disabled = true;
+		document.getElementById("clear_button_"+endRow).disabled = true;
 
 	if(winner){
 		solution = (solution + "").replace(/,/g,'') 

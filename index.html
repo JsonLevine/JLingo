@@ -21,8 +21,11 @@
 		<div id="gameBoard">
 			<table>
 				<tr id="row0">
+					<td id="clear_0" class="submit_button">
+						<button id="clear_button_0" class="large blue button clear_button" onclick="clearRow(0)">Clear</button>	
+					</td>
 					<td id="form0_0">
-						<input class="input_box" type="text" id="input0_0" maxlength="1" onkeyup="movetoNext(this, 'input0_1')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;" class="input_box" type="text" id="input0_0" maxlength="1" onkeyup="movetoNext(this, 'input0_1')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form0_1">
 						<input class="input_box" type="text" id="input0_1" maxlength="1" onkeyup="movetoNext(this, 'input0_2')" onkeypress="return /[a-z]/i.test(event.key)">
@@ -41,6 +44,9 @@
 					</td>								
 				</tr>
 				<tr id="row1">
+					<td id="clear_1" class="submit_button">
+						<button id="clear_button_1" class="large blue button clear_button" onclick="clearRow(1)" disabled="disabled">Clear</button>	
+					</td>
 					<td id="form1_0">
 						<input class="input_box" type="text" id="input1_0" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input1_1')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
@@ -61,6 +67,9 @@
 					</td>	
 				</tr>
 				<tr id="row2">
+					<td id="clear_2" class="submit_button">
+						<button id="clear_button_2" class="large blue button clear_button" onclick="clearRow(2)" disabled="disabled">Clear</button>	
+					</td>
 					<td id="form2_0">
 						<input class="input_box" type="text" id="input2_0" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input2_1')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
@@ -81,6 +90,9 @@
 					</td>					
 				</tr>
 				<tr id="row3">
+					<td id="clear_3" class="submit_button">
+						<button id="clear_button_3" class="large blue button clear_button" onclick="clearRow(3)" disabled="disabled">Clear</button>	
+					</td>
 					<td id="form3_0">
 						<input class="input_box" type="text" id="input3_0" maxlength="1" disabled = "disabled"  onkeyup="movetoNext(this, 'input3_1')"onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
@@ -101,6 +113,9 @@
 					</td>						
 				</tr>
 				<tr id="row4">
+					<td id="clear_4" class="submit_button">
+						<button id="clear_button_4" class="large blue button clear_button" onclick="clearRow(4)" disabled="disabled">Clear</button>	
+					</td>
 					<td id="form4_0">
 						<input class="input_box" type="text" id="input4_0" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input4_1')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
@@ -121,6 +136,9 @@
 					</td>					
 				</tr>
 				<tr id="row5">
+					<td id="clear_5" class="submit_button">
+						<button id="clear_button_5" class="large blue button clear_button" onclick="clearRow(5)" disabled="disabled">Clear</button>	
+					</td>
 					<td id="form5_0">
 						<input class="input_box" type="text" id="input5_0" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input5_1')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
@@ -141,9 +159,11 @@
 					</td>					
 				</tr>
 			</table>
-			<div id = "solution_display" style="display:none"></div>
-			<div id = "try_again_button" style="display:none">
-				<button id="refreshButton" class="large green button" onclick="window.location.reload()">Play again? </button>
+			<div class="hidden_stuff">
+				<div id = "solution_display" style="display:none"></div>
+				<div id = "try_again_button" style="display:none">
+					<button id="refreshButton" class="large green button" onclick="window.location.reload()">Play again? </button>
+				</div>
 			</div>
 		</div>
 	</div>
