@@ -1,6 +1,5 @@
 body{
-  width: fit-content;
-  margin: auto;
+  width: auto;
 }
 
 td{
@@ -44,7 +43,8 @@ input:focus, textarea:focus, select:focus{
 }
 
 #refreshButton{
-  width: 100%;
+    display: table;
+    margin: 1em auto;
 }
 
 .hidden_stuff{
