@@ -5,10 +5,13 @@ body{
 
 td{
   background-color: mistyrose;
-  font-size: 30px;
   border: 1px solid black;
-  width: 3em;
-  height: 3em;
+  width: 5em;
+  height: 5em;
+}
+
+table{
+  margin:  auto;
 }
 
 #gameTitle{
@@ -20,7 +23,7 @@ td{
   border: none;
   background: none;
   height: 100%;
-  font-size: 2.5em;
+  font-size: 4em;
   text-align: center;
   text-transform: uppercase;
   cursor: pointer;
