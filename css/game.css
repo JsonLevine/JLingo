@@ -10,11 +10,13 @@ td{
   height: 5em;
 }
 
-
-@media only screen and (min-device-width: 480px) { 
-  table{
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+  body{
     width:100%;
   } 
+  table{
+    width:100%;
+  }
 }
 
 table{
