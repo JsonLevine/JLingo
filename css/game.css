@@ -17,6 +17,11 @@ td{
   table{
     width:100%;
   }
+  .input_box{
+    width:50% !important;
+    text-align:left !important;
+    margin-left: -10% !important; 
+  }
 }
 
 table{
