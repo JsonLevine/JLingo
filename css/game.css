@@ -1,5 +1,6 @@
 body{
-  width: auto;
+  width: fit-content;
+  margin: auto;
 }
 
 td{
@@ -9,8 +10,15 @@ td{
   height: 5em;
 }
 
+
+@media only screen and (min-device-width: 480px) { 
+  table{
+    width:100%;
+  } 
+}
+
 table{
-  margin:  auto;
+  margin: auto;
 }
 
 #gameTitle{
