@@ -18,8 +18,8 @@ td{
     width:100%;
   }
   .input_box{
-    width:55% !important;
-    text-align:left !important;
+    width: 65% !important;
+    margin-left: -18% !important;
   }
 }
 
