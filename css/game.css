@@ -1,11 +1,13 @@
 body{
   width: fit-content;
   margin: auto;
+  background-color: #ccedff;
 }
 
 td{
   background-color: mistyrose;
   border: 1px solid black;
+  border-radius: 5px;
   width: 5em;
   height: 5em;
 }
@@ -29,6 +31,7 @@ table{
 
 #gameTitle{
   text-align: center;
+  font-family: sans-serif;
 }
 
 .input_box {
