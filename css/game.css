@@ -12,6 +12,10 @@ body{
   height: 5em;
 }
 
+#streak{
+  text-align: center;
+}
+
 .keyboard{
   margin:auto;
   font-family: sans-serif;

@@ -6,6 +6,7 @@
 	var solution = generateNewWord();
 	var correctLetters = 0;
 	var validGuess = true;
+	var currentStreak = 0;
 
 	window.onload = function() {
   		document.getElementById("input0_0").focus();
@@ -15,6 +16,30 @@ function startNewGame(){
 	currentRow = 0;
 	solution = generateNewWord();
 	correctLetters = 0;
+	//revert all colors and clear inputs
+	for(var row=0; row <6; row++){
+		for(var column=0; column <5; column++){
+			document.getElementById("input0_"+column).disabled = false;
+			document.getElementById("input"+row+"_"+column).value = "";
+			document.getElementById("form"+row+"_"+column).style.background = "white"
+		}
+	}
+
+	//revert colors on keyboard diaplay
+	var lettersToReset = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+	for(var n=0; n <lettersToReset.length; n++){
+		document.getElementById(lettersToReset[n]).style.background = "white";
+		document.getElementById(lettersToReset[n]).style.color = "black";
+	}
+	//enable the buttons in first row
+	document.getElementById("guess_button_0").disabled = false;
+	document.getElementById("clear_button_0").disabled = false;
+
+	document.getElementById("solution_display").style.display = "none";
+	document.getElementById("solution_display").innerHTML = "";
+	document.getElementById("quitButton").style.display = "block";
+	document.getElementById("winner_try_again_button").style.display = "none";
+	document.getElementById("input0_0").focus();
 }
 
 function revealLetters(){
@@ -22,13 +47,25 @@ function revealLetters(){
 	document.getElementById("keyboard_space").style.display = "block";
 }
 
+function updateStreak(win){
+	if(win){
+		currentStreak++;
+	}
+	else{
+		currentStreak = 0;
+	}
+	document.getElementById("streak_count").innerHTML = currentStreak;
+}
+
+
 function quitGame(){
 	document.getElementById("quitButton").style.display = "none";
 
 	solution = (solution + "").replace(/,/g,'') 
 	document.getElementById("solution_display").style.display = "block";
 	document.getElementById("solution_display").innerHTML = "Yikes ok.  The answer was: " + solution.toUpperCase();
-	document.getElementById("try_again_button").style.display = "block";
+	updateStreak(false)
+	document.getElementById("loser_try_again_button").style.display = "block";
 }
 
 function movetoNext(current, nextFieldID) {  
@@ -158,16 +195,18 @@ function endGame(winner, endRow){
 		solution = (solution + "").replace(/,/g,'') 
 		document.getElementById("solution_display").style.display = "block";
 		document.getElementById("solution_display").innerHTML = "Winner! You have guessed the word! It was indeed " + solution.toUpperCase();
+		updateStreak(true)
 		document.getElementById("quitButton").style.display = "none";
-		document.getElementById("try_again_button").style.display = "block";
+		document.getElementById("winner_try_again_button").style.display = "block";
 	}
 	else {
 		//show the answer
 		solution = (solution + "").replace(/,/g,'') 
 		document.getElementById("solution_display").style.display = "block";
 		document.getElementById("solution_display").innerHTML = "Sorry :(  The correct word was " + solution.toUpperCase();
+		updateStreak(false)
 		document.getElementById("quitButton").style.display = "none";
-		document.getElementById("try_again_button").style.display = "block";
+		document.getElementById("loser_try_again_button").style.display = "block";
 	}
 }
 
