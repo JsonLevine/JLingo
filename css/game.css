@@ -4,7 +4,7 @@ body{
   background-color: #ccedff;
 }
 
-td{
+.game_table td{
   background-color: white;
   border: 1px solid black;
   border-radius: 5px;
@@ -12,11 +12,28 @@ td{
   height: 5em;
 }
 
+.keyboard{
+  margin:auto;
+}
+
+.keyboard td{
+    border: 1px solid black;
+    background-color: white;
+    border-radius: 5px;
+    width: 1em;
+    height: 1em;
+    text-align: center;
+}
+
+#keyboard_space{
+  margin: 1em auto;
+}
+
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
   body{
     width:100%;
   } 
-  table{
+  .game_table{
     width:100%;
   }
   .input_box{
@@ -25,7 +42,7 @@ td{
   }
 }
 
-table{
+.game_table{
   margin: auto;
 }
 
@@ -55,6 +72,7 @@ input:focus, textarea:focus, select:focus{
 }
 
 #solution_display{
+    font-family: sans-serif;
     font-size: 1.5em;
     margin-top: 1em;
 }
@@ -62,6 +80,12 @@ input:focus, textarea:focus, select:focus{
 #refreshButton{
     display: table;
     margin: 1em auto;
+}
+
+#quitButton{
+  display: table;
+  width: 50%;
+  margin: 1em auto;
 }
 
 .hidden_stuff{
@@ -110,8 +134,8 @@ box-shadow: 0 0 1px rgba(0, 0, 0, .2) inset, 5px 0 5px -3px rgba(0, 0, 0, .2) in
 }
 
 .submit_button{
-  border:none;
-  background:none;
+  border:none !important;
+  background:none !important;
 }
 
   /*-----------------*/

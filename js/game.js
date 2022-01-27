@@ -17,6 +17,20 @@ function startNewGame(){
 	correctLetters = 0;
 }
 
+function revealLetters(){
+	document.getElementById("reveal_button").style.display = "none";
+	document.getElementById("keyboard_space").style.display = "block";
+}
+
+function quitGame(){
+	document.getElementById("quitButton").style.display = "none";
+
+	solution = (solution + "").replace(/,/g,'') 
+	document.getElementById("solution_display").style.display = "block";
+	document.getElementById("solution_display").innerHTML = "Yikes ok.  The answer was: " + solution.toUpperCase();
+	document.getElementById("try_again_button").style.display = "block";
+}
+
 function movetoNext(current, nextFieldID) {  
 	if (current.value.length >= current.maxLength) {  
 		document.getElementById(nextFieldID).focus();  
@@ -71,13 +85,27 @@ function submitGuess(row){
 		for(var n=0; n<solution.length; n++){
 			//console.log("Comparing "+solution[n]+" to "+currentGuess[n])
 			if(solution[n] == currentGuess[n]){
+				//green out letter in keyboard
+				document.getElementById(currentGuess[n]).style.background = "lightgreen" //green
+
 				document.getElementById("form"+row+"_"+n).style.background = "lightgreen" //green
+
 				correctLetters ++;
 			}
 			else if(currentGuess[n] == solution[0] || currentGuess[n] == solution[1] || currentGuess[n] == solution[2] || currentGuess[n] == solution[3] || currentGuess[n] == solution[4]){
+				//yellow out letter in keyboard, but don't make it yellow if it is already green
+				if(document.getElementById(currentGuess[n]).style.background != "lightgreen"){
+					document.getElementById(currentGuess[n]).style.background = "#F7FF73" //yellow
+				}
+
 				document.getElementById("form"+row+"_"+n).style.background = "#F7FF73" //yellow
 			}
 			else {
+				//grey out letter in keyboard
+				document.getElementById(currentGuess[n]).style.background = "lightgrey" //grey
+				document.getElementById(currentGuess[n]).style.color = "grey" //grey
+
+				//grey out main tile
 				document.getElementById("form"+row+"_"+n).style.background = "lightgrey" //grey
 			}
 
@@ -130,6 +158,7 @@ function endGame(winner, endRow){
 		solution = (solution + "").replace(/,/g,'') 
 		document.getElementById("solution_display").style.display = "block";
 		document.getElementById("solution_display").innerHTML = "Winner! You have guessed the word! It was indeed " + solution.toUpperCase();
+		document.getElementById("quitButton").style.display = "none";
 		document.getElementById("try_again_button").style.display = "block";
 	}
 	else {
@@ -137,6 +166,7 @@ function endGame(winner, endRow){
 		solution = (solution + "").replace(/,/g,'') 
 		document.getElementById("solution_display").style.display = "block";
 		document.getElementById("solution_display").innerHTML = "Sorry :(  The correct word was " + solution.toUpperCase();
+		document.getElementById("quitButton").style.display = "none";
 		document.getElementById("try_again_button").style.display = "block";
 	}
 }
