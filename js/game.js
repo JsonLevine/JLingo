@@ -217,7 +217,7 @@ function endGame(winner, endRow){
 }
 
 function generateNewWord(){
-	var number = Math.floor(Math.random() * (2495 - 1 + 1) + 1)
+	var number = Math.floor(Math.random() * possibleWords.length)
 	//pull word from words.txt
 	var solutionWord = possibleWords[number].toUpperCase();
 	//return it as an array
