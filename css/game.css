@@ -12,6 +12,14 @@ body{
   height: 5em;
 }
 
+.invisible{
+  display: none !important;
+}
+
+.visible {
+  display: block !important;
+}
+
 #streak{
   text-align: center;
   font-family: sans-serif;
@@ -113,7 +121,6 @@ input:focus, textarea:focus, select:focus{
 .guess_button:disabled{
   color: grey;
   background-color: darkgrey;
-  display:none;
 }
 
 .guess_button .button:active{

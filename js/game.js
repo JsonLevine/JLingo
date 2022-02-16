@@ -39,7 +39,7 @@ function startNewGame(){
 	}
 
 	//enable the buttons in first row
-	document.getElementById("guess_button_0").disabled = false;
+	document.getElementById("guess_button_0").classList.remove("invisible");
 	document.getElementById("clear_button_0").disabled = false;
 
 	//revert all elements to default state 
@@ -54,7 +54,7 @@ function quitGame(){
 	document.getElementById("quitButton").style.display = "none";
 
 	//convert the solution back to a string
-	solution = convertToString(convertToString);
+	solution = convertToString(solution);
 
 	//show the correct answer and `try again` button
 	document.getElementById("solution_display").style.display = "block";
@@ -65,17 +65,44 @@ function quitGame(){
 	updateStreak(false)
 }
 
-function movetoNext(current, nextFieldID) {  
+function movetoNext(row, current, nextFieldID){  
+
+	//enable the "guess" button if there are 5 letters in the row
+	if (validateRow(row)) {
+		showGuessButton(row);
+	} else {
+		hideGuessButton(row);
+	}
+
+	//move focus to the next box
 	if (current.value.length >= current.maxLength) {  
 		document.getElementById(nextFieldID).focus();  
 	}
 }  
+
+function validateRow(row) {
+	for(var column=0; column<5; column++){
+		if (document.getElementById("input"+row+"_"+column).value.length == 0) {
+			return false;
+		}
+	}
+	return true;
+}
+
+function showGuessButton(row){
+	document.getElementById("guess_button_"+row).disabled = false; 
+}
+
+function hideGuessButton(row){
+	document.getElementById("guess_button_"+row).disabled = true; 
+}
 
 function clearRow(row){
 	for(var column=0; column <5; column++){
 		document.getElementById("input"+row+"_"+column).value = "";
 	}
   	document.getElementById("input"+currentRow+"_0").focus();
+  	hideGuessButton(row);
 }
 
 function validateGuess(input){
@@ -250,7 +277,9 @@ function colorKeyboardTile(letter, color) {
 
 function disableRow(row) {
 	//disable the buttons in current row
-	document.getElementById("guess_button_"+row).disabled = true;
+	document.getElementById("guess_button_"+row).disabled= true;
+	document.getElementById("guess_button_"+row).classList.add("invisible");
+
 	document.getElementById("clear_button_"+row).disabled = true;
 
 	for(var column=0; column <5; column++){
@@ -262,7 +291,7 @@ function disableRow(row) {
 
 function enableRow(row) {
 	//enable the buttons in next row
-	document.getElementById("guess_button_"+row).disabled = false;
+	document.getElementById("guess_button_"+row).classList.remove("invisible");
 	document.getElementById("clear_button_"+row).disabled = false;
 
 	for(var column=0; column <5; column++){

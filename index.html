@@ -17,9 +17,8 @@
 <body>
 	<div id="gameSpace">
 		<div id="header">
-			<h1 id="gameTitle">JLingo v0.98
-				<button id="refreshButton" class="large green button" onclick="window.location.reload()">Reset game (ends current streak) </button>
-			</h1>
+			<h1 id="gameTitle">JLingo v0.98</h1>
+			<h3 id="streak">Current Streak: <span id="streak_count">0</span></h3>
 		</div>
 		<div id="gameBoard">
 			<h2 id="keyboard_space">
@@ -39,30 +38,28 @@
 					</tr>
 				</table>
 			</h2>
-					<h3 id="streak">Current Streak: <span id="streak_count">0</span></h3>
-
 			<table class="game_table">
 				<tr id="row0">
 					<td id="clear_0" class="submit_button">
 						<button id="clear_button_0" class="large blue button clear_button" onclick="clearRow(0)">Clear</button>	
 					</td>
 					<td id="form0_0">
-						<input onfocus="this.select();" onmouseup="return false;" class="input_box" type="text" id="input0_0" maxlength="1" onkeyup="movetoNext(this, 'input0_1')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;" class="input_box" type="text" id="input0_0" maxlength="1" onkeyup="movetoNext(0, this, 'input0_1')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form0_1">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input0_1" maxlength="1" onkeyup="movetoNext(this, 'input0_2')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input0_1" maxlength="1" onkeyup="movetoNext(0, this, 'input0_2')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form0_2">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input0_2" maxlength="1" onkeyup="movetoNext(this, 'input0_3')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input0_2" maxlength="1" onkeyup="movetoNext(0, this, 'input0_3')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form0_3">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input0_3" maxlength="1" onkeyup="movetoNext(this, 'input0_4')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input0_3" maxlength="1" onkeyup="movetoNext(0, this, 'input0_4')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form0_4">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input0_4" maxlength="1" onkeyup="movetoNext(this, 'guess_button_0')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input0_4" maxlength="1" onkeyup="movetoNext(0, this, 'guess_button_0')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="submit_0" class="submit_button">
-						<button id="guess_button_0" class="large red button guess_button" onclick="submitGuess(0)">Guess</button>	
+						<button disabled="disabled" id="guess_button_0" class="large red button guess_button" onclick="submitGuess(0)">Guess</button>	
 					</td>								
 				</tr>
 				<tr id="row1">
@@ -70,22 +67,22 @@
 						<button id="clear_button_1" class="large blue button clear_button" onclick="clearRow(1)" disabled="disabled">Clear</button>	
 					</td>
 					<td id="form1_0">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input1_0" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input1_1')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input1_0" maxlength="1" disabled = "disabled" onkeyup="movetoNext(1, this, 'input1_1')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form1_1">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input1_1" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input1_2')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input1_1" maxlength="1" disabled = "disabled" onkeyup="movetoNext(1, this, 'input1_2')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form1_2">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input1_2" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input1_3')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input1_2" maxlength="1" disabled = "disabled" onkeyup="movetoNext(1, this, 'input1_3')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form1_3">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input1_3" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input1_4')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input1_3" maxlength="1" disabled = "disabled" onkeyup="movetoNext(1, this, 'input1_4')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form1_4">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input1_4" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'guess_button_1')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input1_4" maxlength="1" disabled = "disabled" onkeyup="movetoNext(1, this, 'guess_button_1')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="submit_1" class="submit_button">
-						<button id="guess_button_1" class="large red button guess_button" onclick="submitGuess(1)" disabled="disabled">Guess</button>
+						<button id="guess_button_1" class="invisible large red button guess_button " onclick="submitGuess(1)" disabled="disabled">Guess</button>
 					</td>	
 				</tr>
 				<tr id="row2">
@@ -93,22 +90,22 @@
 						<button id="clear_button_2" class="large blue button clear_button" onclick="clearRow(2)" disabled="disabled">Clear</button>	
 					</td>
 					<td id="form2_0">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input2_0" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input2_1')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input2_0" maxlength="1" disabled = "disabled" onkeyup="movetoNext(2, this, 'input2_1')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form2_1">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input2_1" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input2_2')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input2_1" maxlength="1" disabled = "disabled" onkeyup="movetoNext(2, this, 'input2_2')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form2_2">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input2_2" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input2_3')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input2_2" maxlength="1" disabled = "disabled" onkeyup="movetoNext(2, this, 'input2_3')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form2_3">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input2_3" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input2_4')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input2_3" maxlength="1" disabled = "disabled" onkeyup="movetoNext(2, this, 'input2_4')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form2_4">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input2_4" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'guess_button_2')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input2_4" maxlength="1" disabled = "disabled" onkeyup="movetoNext(2, this, 'guess_button_2')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="submit_2" class="submit_button">
-						<button id="guess_button_2" class="large red button guess_button" onclick="submitGuess(2)" disabled="disabled">Guess</button>
+						<button id="guess_button_2" class="large red button guess_button invisible" onclick="submitGuess(2)" disabled="disabled">Guess</button>
 					</td>					
 				</tr>
 				<tr id="row3">
@@ -116,22 +113,22 @@
 						<button id="clear_button_3" class="large blue button clear_button" onclick="clearRow(3)" disabled="disabled">Clear</button>	
 					</td>
 					<td id="form3_0">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input3_0" maxlength="1" disabled = "disabled"  onkeyup="movetoNext(this, 'input3_1')"onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input3_0" maxlength="1" disabled = "disabled"  onkeyup="movetoNext(3, this, 'input3_1')"onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form3_1">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input3_1" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input3_2')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input3_1" maxlength="1" disabled = "disabled" onkeyup="movetoNext(3, this, 'input3_2')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form3_2">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input3_2" maxlength="1" disabled = "disabled"  onkeyup="movetoNext(this, 'input3_3')"onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input3_2" maxlength="1" disabled = "disabled"  onkeyup="movetoNext(3, this, 'input3_3')"onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form3_3">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input3_3" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input3_4')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input3_3" maxlength="1" disabled = "disabled" onkeyup="movetoNext(3, this, 'input3_4')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form3_4">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input3_4" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'guess_button_3')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input3_4" maxlength="1" disabled = "disabled" onkeyup="movetoNext(3, this, 'guess_button_3')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="submit_3" class="submit_button">
-						<button id="guess_button_3" class="large red button guess_button" onclick="submitGuess(3)" disabled="disabled">Guess</button>
+						<button id="guess_button_3" class="large red button guess_button invisible" onclick="submitGuess(3)" disabled="disabled">Guess</button>
 					</td>						
 				</tr>
 				<tr id="row4">
@@ -139,22 +136,22 @@
 						<button id="clear_button_4" class="large blue button clear_button" onclick="clearRow(4)" disabled="disabled">Clear</button>	
 					</td>
 					<td id="form4_0">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input4_0" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input4_1')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input4_0" maxlength="1" disabled = "disabled" onkeyup="movetoNext(4, this, 'input4_1')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form4_1">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input4_1" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input4_2')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input4_1" maxlength="1" disabled = "disabled" onkeyup="movetoNext(4, this, 'input4_2')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form4_2">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input4_2" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input4_3')"onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input4_2" maxlength="1" disabled = "disabled" onkeyup="movetoNext(4, this, 'input4_3')"onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form4_3">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input4_3" maxlength="1" disabled = "disabled"  onkeyup="movetoNext(this, 'input4_4')"onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input4_3" maxlength="1" disabled = "disabled"  onkeyup="movetoNext(4, this, 'input4_4')"onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form4_4">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input4_4" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'guess_button_4')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input4_4" maxlength="1" disabled = "disabled" onkeyup="movetoNext(4, this, 'guess_button_4')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="submit_4" class="submit_button">
-						<button id="guess_button_4" class="large red button guess_button" onclick="submitGuess(4)" disabled="disabled">Guess</button>
+						<button id="guess_button_4" class="large red button guess_button invisible" onclick="submitGuess(4)" disabled="disabled">Guess</button>
 					</td>					
 				</tr>
 				<tr id="row5">
@@ -162,22 +159,22 @@
 						<button id="clear_button_5" class="large blue button clear_button" onclick="clearRow(5)" disabled="disabled">Clear</button>	
 					</td>
 					<td id="form5_0">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input5_0" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input5_1')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input5_0" maxlength="1" disabled = "disabled" onkeyup="movetoNext(5, this, 'input5_1')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form5_1">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input5_1" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input5_2')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input5_1" maxlength="1" disabled = "disabled" onkeyup="movetoNext(5, this, 'input5_2')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form5_2">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input5_2" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input5_3')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input5_2" maxlength="1" disabled = "disabled" onkeyup="movetoNext(5, this, 'input5_3')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form5_3">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input5_3" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'input5_4')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input5_3" maxlength="1" disabled = "disabled" onkeyup="movetoNext(5, this, 'input5_4')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="form5_4">
-						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input5_4" maxlength="1" disabled = "disabled" onkeyup="movetoNext(this, 'guess_button_5')" onkeypress="return /[a-z]/i.test(event.key)">
+						<input onfocus="this.select();" onmouseup="return false;"  class="input_box" type="text" id="input5_4" maxlength="1" disabled = "disabled" onkeyup="movetoNext(5, this, 'guess_button_5')" onkeypress="return /[a-z]/i.test(event.key)">
 					</td>
 					<td id="submit_5" class="submit_button">
-						<button id="guess_button_5" class="large red button guess_button" onclick="submitGuess(5)" disabled="disabled">Submit</button>
+						<button id="guess_button_5" class="large red button guess_button invisible" onclick="submitGuess(5)" disabled="disabled">Submit</button>
 					</td>					
 				</tr>
 			</table>
