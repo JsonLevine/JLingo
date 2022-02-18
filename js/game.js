@@ -12,6 +12,13 @@ var validGuess = true; //if the current guess is a real word (default true)
 var currentStreak = 0; //user's current win streak
 var solution = generateNewWord();
 
+//tile Colors
+const yellowTile = "#F7FF73" //light yellow
+const greenTile = "lightgreen"
+const greyTile = "lightgrey"
+const greyTileFont = "grey"
+
+
 //start game with cursor on top left space
 window.onload = function() {
 		document.getElementById("input0_0").focus();
@@ -124,11 +131,6 @@ function validateGuess(input){
 }
 
 function submitGuess(row){
-	const yellowTile = "#F7FF73" //light yellow
-	const greenTile = "lightgreen"
-	const greyTile = "lightgrey"
-	const greyTileFont = "grey"
-
 	var currentGuess = []
 
 	//copy the solution so we canalter it later
@@ -164,69 +166,19 @@ function submitGuess(row){
 				correctLetters ++;
 			}
 			else if(currentGuess[n] == solutionCopy[0]){
-				//yellow out letter in keyboard, but don't make it yellow if it is already green
-				if(document.getElementById(currentGuess[n]).style.background != greenTile){
-					colorKeyboardTile(currentGuess[n], yellowTile);
-				}
-				//yellow out main tile
-				if(currentGuess[0] != solutionCopy[0]){
-					colorTile(row, n, yellowTile);
-				}		
-				else {					
-					colorTile(row, n, greyTile);
-				}	
+				checkForDuplicates(row, n, currentGuess, solutionCopy, 0);
 			} 
 			else if(currentGuess[n] == solutionCopy[1]){
-				//yellow out letter in keyboard, but don't make it yellow if it is already green
-				if(document.getElementById(currentGuess[n]).style.background != greenTile){
-					colorKeyboardTile(currentGuess[n], yellowTile);
-				}
-				//yellow out main tile
-				if(currentGuess[1] != solutionCopy[1]){
-					colorTile(row, n, yellowTile);
-				} 
-				else {					
-					colorTile(row, n, greyTile);
-				}
+				checkForDuplicates(row, n, currentGuess, solutionCopy, 1);
 			}
 			else if(currentGuess[n] == solutionCopy[2]){
-				//yellow out letter in keyboard, but don't make it yellow if it is already green
-				if(document.getElementById(currentGuess[n]).style.background != greenTile){
-					colorKeyboardTile(currentGuess[n], yellowTile);
-				}
-				//yellow out main tile
-				if(currentGuess[2] != solutionCopy[2]){
-					colorTile(row, n, yellowTile);
-				}	
-				else {					
-					colorTile(row, n, greyTile);
-				}		
+				checkForDuplicates(row, n, currentGuess, solutionCopy, 2);
 			}
 			else if(currentGuess[n] == solutionCopy[3]){
-				//yellow out letter in keyboard, but don't make it yellow if it is already green
-				if(document.getElementById(currentGuess[n]).style.background != greenTile){
-					colorKeyboardTile(currentGuess[n], yellowTile);
-				}
-				//yellow out main tile
-				if(currentGuess[3] != solutionCopy[3]){
-					colorTile(row, n, yellowTile);
-				}			
-				else {					
-					colorTile(row, n, greyTile);
-				}
+				checkForDuplicates(row, n, currentGuess, solutionCopy, 3);
 			}
 			else if(currentGuess[n] == solutionCopy[4]){
-				//yellow out letter in keyboard, but don't make it yellow if it is already green
-				if(document.getElementById(currentGuess[n]).style.background != greenTile){
-					colorKeyboardTile(currentGuess[n], yellowTile);
-				}
-				//yellow out main tile
-				if(currentGuess[4] != solutionCopy[4]){
-					colorTile(row, n, yellowTile);
-				}	
-				else {					
-					colorTile(row, n, greyTile);
-				}		
+				checkForDuplicates(row, n, currentGuess, solutionCopy, 4);	
 			}
 			else {
 				//grey out letter in keyboard
@@ -270,6 +222,21 @@ function submitGuess(row){
 			//user loses
 			endGame(false, 5)
 		}	
+	}
+}
+
+function checkForDuplicates(row, n, currentGuess, solutionCopy,  column){
+	//yellow out letter in keyboard, but don't make it yellow if it is already green
+	if(document.getElementById(currentGuess[n]).style.background != greenTile){
+		colorKeyboardTile(currentGuess[n], yellowTile);
+	}
+	//yellow out main tile
+	if(currentGuess[column] != solutionCopy[column]){
+		colorTile(row, n, yellowTile);
+	} 
+	//grey out the main tile
+	else {					
+		colorTile(row, n, greyTile);
 	}
 }
 
