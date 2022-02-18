@@ -131,6 +131,12 @@ function submitGuess(row){
 
 	var currentGuess = []
 
+	//copy the solution so we canalter it later
+	var solutionCopy = [];
+	for(var n=0; n<5; n++){
+		solutionCopy[n] = solution[n];
+	}
+
 	//pupulate guess with what they entered
 	for(var column=0; column <5; column++){
 		currentGuess[column] = document.getElementById("input"+row+"_"+column).value.toUpperCase();
@@ -142,8 +148,8 @@ function submitGuess(row){
 	if(validGuess){
 
 		//compare the guess to the solution and highlite the matching letters
-		for(var n=0; n<solution.length; n++){
-			if(solution[n] == currentGuess[n]){
+		for(var n=0; n<5; n++){
+			if(solutionCopy[n] == currentGuess[n]){
 
 				//green out letter in keyboard
 				colorKeyboardTile(currentGuess[n], greenTile);
@@ -151,18 +157,76 @@ function submitGuess(row){
 				//green out main tile
 				colorTile(row, n, greenTile);
 
+				//remove that letter from the solution 
+				solutionCopy[n]  = '';
+
 				//add one to correct letters count
 				correctLetters ++;
 			}
-			else if(currentGuess[n] == solution[0] || currentGuess[n] == solution[1] || currentGuess[n] == solution[2] || currentGuess[n] == solution[3] || currentGuess[n] == solution[4]){
-			
+			else if(currentGuess[n] == solutionCopy[0]){
 				//yellow out letter in keyboard, but don't make it yellow if it is already green
 				if(document.getElementById(currentGuess[n]).style.background != greenTile){
 					colorKeyboardTile(currentGuess[n], yellowTile);
 				}
-
 				//yellow out main tile
-				colorTile(row, n, yellowTile);
+				if(currentGuess[0] != solutionCopy[0]){
+					colorTile(row, n, yellowTile);
+				}		
+				else {					
+					colorTile(row, n, greyTile);
+				}	
+			} 
+			else if(currentGuess[n] == solutionCopy[1]){
+				//yellow out letter in keyboard, but don't make it yellow if it is already green
+				if(document.getElementById(currentGuess[n]).style.background != greenTile){
+					colorKeyboardTile(currentGuess[n], yellowTile);
+				}
+				//yellow out main tile
+				if(currentGuess[1] != solutionCopy[1]){
+					colorTile(row, n, yellowTile);
+				} 
+				else {					
+					colorTile(row, n, greyTile);
+				}
+			}
+			else if(currentGuess[n] == solutionCopy[2]){
+				//yellow out letter in keyboard, but don't make it yellow if it is already green
+				if(document.getElementById(currentGuess[n]).style.background != greenTile){
+					colorKeyboardTile(currentGuess[n], yellowTile);
+				}
+				//yellow out main tile
+				if(currentGuess[2] != solutionCopy[2]){
+					colorTile(row, n, yellowTile);
+				}	
+				else {					
+					colorTile(row, n, greyTile);
+				}		
+			}
+			else if(currentGuess[n] == solutionCopy[3]){
+				//yellow out letter in keyboard, but don't make it yellow if it is already green
+				if(document.getElementById(currentGuess[n]).style.background != greenTile){
+					colorKeyboardTile(currentGuess[n], yellowTile);
+				}
+				//yellow out main tile
+				if(currentGuess[3] != solutionCopy[3]){
+					colorTile(row, n, yellowTile);
+				}			
+				else {					
+					colorTile(row, n, greyTile);
+				}
+			}
+			else if(currentGuess[n] == solutionCopy[4]){
+				//yellow out letter in keyboard, but don't make it yellow if it is already green
+				if(document.getElementById(currentGuess[n]).style.background != greenTile){
+					colorKeyboardTile(currentGuess[n], yellowTile);
+				}
+				//yellow out main tile
+				if(currentGuess[4] != solutionCopy[4]){
+					colorTile(row, n, yellowTile);
+				}	
+				else {					
+					colorTile(row, n, greyTile);
+				}		
 			}
 			else {
 				//grey out letter in keyboard
